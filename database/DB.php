@@ -1,14 +1,16 @@
 <?php
 
+define('DB_FILENAME', 'db.json');
+define('DB_DIRNAME', 'storage');
+
+
 class DB
 {
-   private $filename;
-   private $data;
-   private $lastId;
 
-   public function __construct($filename = 'storage/db.json')
+   private $filename, $data, $lastId;
+   public function __construct()
    {
-      $this->filename = $filename;
+      $this->filename = DB_DIRNAME . '/' . DB_FILENAME;
       $this->load();
    }
 
@@ -22,7 +24,9 @@ class DB
             throw new Exception("Erro ao decodificar JSON: " . json_last_error_msg());
          }
       } else {
-         $this->data = [];
+         mkdir(DB_DIRNAME, 0777, true);
+         file_put_contents($this->filename, '[]');
+         $this->load();
       }
 
       $this->lastId = $this->getLastId();

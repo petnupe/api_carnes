@@ -9,7 +9,7 @@ PHP 7.4 ou superior
 Servidor web (Apache, Nginx, etc.)
 
 Instalação
-Clone o repositório: git clone https://github.com/petnupe/apiCarne.git;
+Clone o repositório: git clone https://github.com/petnupe/api_carnes.git;
 Navegue até o diretório do projeto: cd apiCarne;
 Certifique-se de que o diretório storage existe e tem permissões de leitura e escrita.
 
